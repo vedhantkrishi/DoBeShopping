@@ -1,0 +1,7 @@
+node_modules/
+client/build/
+client/node_modules
+client/public/uploads/product/*
+!client/public/uploads/product/.gitkeep
+config/config.env
+.env
