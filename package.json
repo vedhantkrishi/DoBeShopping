@@ -7,8 +7,7 @@
   "license": "MIT",
   "scripts": {
     "start": "NODE_ENV=production node app.js",
-    "start:dev": "node app",
-    "heroku-postbuild": "YARN_PRODUCTION=false cd client && yarn install"
+    "start:dev": "node app"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
