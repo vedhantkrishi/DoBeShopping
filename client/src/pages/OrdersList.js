@@ -5,13 +5,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import ErrorMessage from '../components/Message/errorMessage';
 import { listOrders } from '../actions/orderAction';
 import TableLoader from '../components/Loader/TableLoader';
-import Print from '../components/Print/Print';
-import pdfMake from 'pdfmake/build/pdfmake';
-import pdfFonts from 'pdfmake/build/vfs_fonts';
+// import Print from '../components/Print/Print';
+// import pdfMake from 'pdfmake/build/pdfmake';
+// import pdfFonts from 'pdfmake/build/vfs_fonts';
 import * as routes from '../constants/routes';
-import { createPdfData } from '../services/order';
+// import { createPdfData } from '../services/order';
 import { interpolate } from '../utils/string';
-pdfMake.vfs = pdfFonts.pdfMake.vfs;
+// pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 const OrderList = () => {
   const orderList = useSelector((state) => state.orderList);
@@ -36,7 +36,7 @@ const OrderList = () => {
     // eslint-disable-next-line
   }, [dispatch, success]);
 
-  const printAs = (value) => {
+  /* const printAs = (value) => {
     const downloadAs = value;
 
     switch (downloadAs) {
@@ -52,7 +52,7 @@ const OrderList = () => {
       default:
         break;
     }
-  };
+  }; */
 
   return (
     <>
@@ -61,10 +61,10 @@ const OrderList = () => {
           <h1>Orders ({count})</h1>
         </span>
 
-        <span className="float-right">
+        {/* <span className="float-right">
            
           <Print printAs={printAs} />
-        </span>
+        </span> */}
       </div>
 
       {loading ? (

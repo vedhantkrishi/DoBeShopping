@@ -11,10 +11,10 @@ import TableLoader from '../components/Loader/TableLoader';
 import { createPdfData } from '../services/user';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css';
-import Print from '../components/Print/Print';
-import pdfMake from 'pdfmake/build/pdfmake';
-import pdfFonts from 'pdfmake/build/vfs_fonts';
-pdfMake.vfs = pdfFonts.pdfMake.vfs;
+// import Print from '../components/Print/Print';
+// import pdfMake from 'pdfmake/build/pdfmake';
+// import pdfFonts from 'pdfmake/build/vfs_fonts';
+// pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 const UserList = () => {
   const dispatch = useDispatch();
@@ -69,7 +69,7 @@ const UserList = () => {
     });
   };
 
-  const printAs = (value) => {
+  /* const printAs = (value) => {
     const downloadAs = value;
 
     switch (downloadAs) {
@@ -85,7 +85,7 @@ const UserList = () => {
       default:
         break;
     }
-  };
+  }; */
 
   return (
     <>
@@ -100,10 +100,10 @@ const UserList = () => {
           <h1>Users ({count})</h1>
         </span>
 
-        <span className="float-right">
+        {/* <span className="float-right">
            
           <Print printAs={printAs} />
-        </span>
+        </span> */}
       </div>
 
       {loading ? (

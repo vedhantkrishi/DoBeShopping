@@ -6,13 +6,13 @@ import ErrorMessage from '../components/Message/errorMessage';
 //import { Button as MeterialButton } from "@material-ui/core/";
 import { authOrder } from '../actions/orderAction';
 import { interpolate } from '../utils/string';
-import { createPdfData } from '../services/order';
+// import { createPdfData } from '../services/order';
 import * as routes from '../constants/routes';
 import TableLoader from '../components/Loader/TableLoader';
-import Print from '../components/Print/Print';
-import pdfMake from 'pdfmake/build/pdfmake';
-import pdfFonts from 'pdfmake/build/vfs_fonts';
-pdfMake.vfs = pdfFonts.pdfMake.vfs;
+// import Print from '../components/Print/Print';
+// import pdfMake from 'pdfmake/build/pdfmake';
+// import pdfFonts from 'pdfmake/build/vfs_fonts';
+// pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 const Profile = () => {
   const dispatch = useDispatch();
@@ -28,7 +28,7 @@ const Profile = () => {
     // eslint-disable-next-line
   }, [dispatch, userInfo]);
 
-  const printAs = (value) => {
+  /* const printAs = (value) => {
     const downloadAs = value;
 
     switch (downloadAs) {
@@ -44,7 +44,7 @@ const Profile = () => {
       default:
         break;
     }
-  };
+  }; */
 
   console.log(orders);
 
@@ -100,10 +100,10 @@ const Profile = () => {
             <h1>My Orders ({count})</h1>
           </span>
 
-          <span className="float-right">
+          {/* <span className="float-right">
              
             <Print printAs={printAs} />
-          </span>
+          </span> */}
         </div>
 
         {loading ? (
