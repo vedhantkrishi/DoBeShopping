@@ -7,13 +7,13 @@ const cron = require("node-cron");
 const User = require("../models/User");
 
 const RegisterUser = asyncHandler(async (req, res, next) => {
+  // console.log("RegisterUser called");
   var uid = "";
   var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
-  var charactersLength = characters.length;
-
+  // 6 random characters form a unique ID
   for (var i = 0; i < 6; i++) {
-    uid += characters.charAt(Math.floor(Math.random() * charactersLength));
+    uid += characters.charAt(Math.floor(Math.random() * characters.length));
   }
   const newUser = await User.create({ ...req.body, uid: uid });
 
@@ -28,8 +28,8 @@ const RegisterUser = asyncHandler(async (req, res, next) => {
     await verifyEmail(options);
 
     var job = cron.schedule(
-      "59 * * * *",
-      async () => {
+      "59 * * * *", // Cron expression for the schedule
+      async () => {  // Task to be executed
         try {
           const user1 = await User.findOne({
             email: newUser.email,
@@ -48,11 +48,11 @@ const RegisterUser = asyncHandler(async (req, res, next) => {
         }
       },
       {
-        scheduled: false,
+        scheduled: false, // Options for the job
       }
     );
 
-    job.start();
+    // job.start();
 
     res.status(200).send({
       status: "success",
@@ -83,7 +83,7 @@ const verificationEmail = asyncHandler(async (req, res, next) => {
     uid: req.body.verificationCode,
   });
 
-  if (!user) throw createError(401, "Invalid verifaication code");
+  if (!user) throw createError(401, "Invalid verification code");
 
   if (user.verify)
     throw createError(401, "You have already verified. Login in to continue.");

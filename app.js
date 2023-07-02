@@ -30,12 +30,12 @@ app.use(
 
 app.use(cors());
 
-app.use("/api/v1/auth", authRouter);
-app.use("/api/v1/user", userRouter);
+app.use("/auth", authRouter);
+app.use("/user", userRouter);
 app.use("/product", productRouter);
-app.use("/api/v1/review", reviewRouter);
-app.use("/api/v1/order", orderRouter);
-app.use("/api/v1/category", categoryRouter);
+app.use("/review", reviewRouter);
+app.use("/order", orderRouter);
+app.use("/category", categoryRouter);
 
 app.get("/api/config/paypal", (req, res) =>
   res.send(process.env.PAYPAL_CLIENT_ID)
