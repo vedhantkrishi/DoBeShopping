@@ -14,6 +14,8 @@ const Header = () => {
 
   const { userInfo } = userAuthData;
 
+  // console.log("user role: " + (userInfo? userInfo.role : ""));
+
   return (
     <header>
       <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
@@ -35,7 +37,7 @@ const Header = () => {
               </LinkContainer>
 
               {userInfo ? (
-                <NavDropdown title={userInfo.name} id="username">
+                <NavDropdown title={userInfo.name.split(' ')[0]} id="username">
                   <LinkContainer to={routes.PROFILE}>
                     <NavDropdown.Item>Profile</NavDropdown.Item>
                   </LinkContainer>

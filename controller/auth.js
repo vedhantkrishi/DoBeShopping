@@ -27,6 +27,7 @@ const RegisterUser = asyncHandler(async (req, res, next) => {
 
     await verifyEmail(options);
 
+    // Deletes the user object made if not verified after an hour
     var job = cron.schedule(
       "59 * * * *", // Cron expression for the schedule
       async () => {  // Task to be executed
@@ -52,7 +53,7 @@ const RegisterUser = asyncHandler(async (req, res, next) => {
       }
     );
 
-    // job.start();
+    job.start();
 
     res.status(200).send({
       status: "success",
@@ -95,7 +96,7 @@ const verificationEmail = asyncHandler(async (req, res, next) => {
   sendTokenResponse(user, 200, res);
 });
 
-//Update user details
+/* //Update user details
 
 const updateDetails = asyncHandler(async (req, res, next) => {
   const newDetails = {
@@ -131,7 +132,7 @@ const updatePassword = asyncHandler(async (req, res, next) => {
   await user.save();
 
   sendTokenResponse(user, 200, res);
-});
+}); */
 
 //Forgot Password
 
@@ -146,7 +147,8 @@ const forgotPassword = asyncHandler(async (req, res, next) => {
   await user.save({ validateBeforeSave: false });
 
   try {
-    const resetUrl = `https://dobeshopping.herokuapp.com/reset-password/?token=${resetToken}`;
+    // const resetUrl = `https://dobeshopping.herokuapp.com/reset-password/?token=${resetToken}`;
+    const resetUrl = `http://localhost:3000/reset-password/?token=${resetToken}`;
 
     const message = `You are receiving this email because you (or someone else ) has
     requested the reset of a password.`;
@@ -220,8 +222,8 @@ const sendTokenResponse = (user, statusCode, res) => {
 module.exports = {
   RegisterUser,
   login,
-  updateDetails,
-  updatePassword,
+  // updateDetails,
+  // updatePassword,
   forgotPassword,
   resetPassword,
   verificationEmail,

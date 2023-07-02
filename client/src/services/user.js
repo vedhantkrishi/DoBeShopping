@@ -31,34 +31,6 @@ export const fetchUser = async (id) => {
 
 /**
  *
- * @param {String} body
- * @returns {Object} data
- */
-
-export const forgotPassword = async (body) => {
-  const { data } = await http.post(config.apiEndPoint.user.forgotPassword, {
-    body,
-  });
-
-  return data;
-};
-
-/**
- *
- * @param {String} body
- * @returns {Object} data
- */
-
-export const resetPassword = async (body) => {
-  const { data } = await http.post(config.apiEndPoint.user.resetPassword, {
-    body,
-  });
-
-  return data;
-};
-
-/**
- *
  * @param {Object} body
  * @returns {Object} data
  */
@@ -90,6 +62,34 @@ export const registerUser = async (body) => {
  */
 export const verifyEmail = async (body) => {
   const { data } = await http.post(config.apiEndPoint.user.verifyEmail, {
+    body,
+  });
+
+  return data;
+};
+
+/**
+ *
+ * @param {String} body
+ * @returns {Object} data
+ */
+
+export const forgotPassword = async (body) => {
+  const { data } = await http.post(config.apiEndPoint.user.forgotPassword, {
+    body,
+  });
+
+  return data;
+};
+
+/**
+ *
+ * @param {String} body
+ * @returns {Object} data
+ */
+
+export const resetPassword = async (body) => {
+  const { data } = await http.post(config.apiEndPoint.user.resetPassword, {
     body,
   });
 

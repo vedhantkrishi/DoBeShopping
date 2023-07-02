@@ -89,6 +89,42 @@ export const emailVerification = (verificationCode) => async (dispatch) => {
   }
 };
 
+export const forgotPassword = (email) => async (dispatch) => {
+  try {
+    dispatch({ type: userConstants.FORGOT_PASSWORD_SEND_START });
+
+    const { message } = await userServices.forgotPassword(email);
+
+    dispatch({
+      type: userConstants.FORGOT_PASSWORD_SEND_SUCCESS,
+      payload: message,
+    });
+  } catch (err) {
+    dispatch({
+      type: userConstants.FORGOT_PASSWORD_SEND_FAIL,
+      payload: handleError(err),
+    });
+  }
+};
+
+export const resetPassword = (resetPasswordData) => async (dispatch) => {
+  try {
+    dispatch({ type: userConstants.RESET_PASSWORD_START });
+
+    const { message } = await userServices.resetPassword(resetPasswordData);
+
+    dispatch({
+      type: userConstants.RESET_PASSWORD_SUCCESS,
+      payload: message,
+    });
+  } catch (err) {
+    dispatch({
+      type: userConstants.RESET_PASSWORD_FAIL,
+      payload: handleError(err),
+    });
+  }
+};
+
 export const userList = (initialLoading) => async (dispatch) => {
   try {
     if (initialLoading) {
@@ -159,42 +195,6 @@ export const getUser = (id) => async (dispatch) => {
   } catch (err) {
     dispatch({
       type: userConstants.USER_FETCH_FAIL,
-      payload: handleError(err),
-    });
-  }
-};
-
-export const forgotPassword = (email) => async (dispatch) => {
-  try {
-    dispatch({ type: userConstants.FORGOT_PASSWORD_SEND_START });
-
-    const { message } = await userServices.forgotPassword(email);
-
-    dispatch({
-      type: userConstants.FORGOT_PASSWORD_SEND_SUCCESS,
-      payload: message,
-    });
-  } catch (err) {
-    dispatch({
-      type: userConstants.FORGOT_PASSWORD_SEND_FAIL,
-      payload: handleError(err),
-    });
-  }
-};
-
-export const resetPassword = (resetPasswordData) => async (dispatch) => {
-  try {
-    dispatch({ type: userConstants.RESET_PASSWORD_START });
-
-    const { message } = await userServices.resetPassword(resetPasswordData);
-
-    dispatch({
-      type: userConstants.RESET_PASSWORD_SUCCESS,
-      payload: message,
-    });
-  } catch (err) {
-    dispatch({
-      type: userConstants.RESET_PASSWORD_FAIL,
       payload: handleError(err),
     });
   }

@@ -15,11 +15,11 @@ const getUser = asyncHandler(async (req, res, next) => {
   res.status(200).send({ status: "success", data: user });
 });
 
-const createUser = asyncHandler(async (req, res, next) => {
+/* const createUser = asyncHandler(async (req, res, next) => {
   const user = await User.create(req.body);
 
   res.status(201).send({ status: "success", data: user });
-});
+}); */
 
 const updateUser = asyncHandler(async (req, res, next) => {
   const editUser = await User.findByIdAndUpdate(req.params.id, req.body, {
@@ -42,14 +42,12 @@ const deleteUser = asyncHandler(async (req, res, next) => {
     throw createError(404, `User is not found with id of ${req.params.id}`);
 
   await deleteUser.remove();
-  res
-    .status(204)
-    .send({ status: "success", message: "User Deleted Successfully" });
+  res.status(204).send({ status: "success", message: "User Deleted Successfully" });
 });
 module.exports = {
   getUsers,
   getUser,
-  createUser,
+  // createUser,
   updateUser,
   deleteUser,
 };

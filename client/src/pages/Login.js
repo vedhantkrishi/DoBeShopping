@@ -86,8 +86,8 @@ const Login = ({ location, history }) => {
 
         <Row className="py-3">
           <Col>
-            New Customer?
-            <Link to={redirectUserToRegisterRoute}>Register</Link>
+            New Customer? 
+            <Link to={redirectUserToRegisterRoute}> Register</Link>
           </Col>
           <Col className="text-right">
             <Link to={routes.FORGOT_PASSWORD}>Forgot Password</Link>
