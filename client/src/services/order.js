@@ -1,4 +1,4 @@
-import { mainHeader, bodyForOrders, tableStyles } from '../components/table/tableLayout';
+// import { mainHeader, bodyForOrders, tableStyles } from '../components/table/tableLayout';
 import config from '../config';
 import http from '../utils/http';
 import { interpolate } from '../utils/string';
@@ -97,7 +97,7 @@ export const orders = async () => {
  * @param {Array} orders
  * @returns {Object}
  */
-export const createPdfData = (userInfo, orders) => {
+/* export const createPdfData = (userInfo, orders) => {
   return {
     content: [
       //Header
@@ -146,4 +146,4 @@ export const createPdfData = (userInfo, orders) => {
       ...tableStyles(),
     },
   };
-};
+}; */

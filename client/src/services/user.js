@@ -1,4 +1,4 @@
-import { mainHeader, bodyForUsers, tableStyles } from '../components/table/tableLayout';
+// import { mainHeader, bodyForUsers, tableStyles } from '../components/table/tableLayout';
 import config from '../config';
 import http from '../utils/http';
 import { interpolate } from '../utils/string';
@@ -136,7 +136,7 @@ export const updateUser = async (id, body) => {
  * @param {Array} users
  * @returns {Object}
  */
-export const createPdfData = (userInfo, users) => {
+/* export const createPdfData = (userInfo, users) => {
   return {
     content: [
       //Header
@@ -185,4 +185,4 @@ export const createPdfData = (userInfo, users) => {
       ...tableStyles(),
     },
   };
-};
+}; */
