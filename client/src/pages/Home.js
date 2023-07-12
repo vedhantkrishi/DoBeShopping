@@ -15,6 +15,7 @@ import * as routes from '../constants/routes';
  * Setting filters in a searchQuery does not work
  */
 
+
 const Home = () => {
   const [sort, setSort] = useState([]);
   const [priceRange, setPriceRange] = useState('');
@@ -66,6 +67,7 @@ const Home = () => {
     );
   };
 
+  
   const handleSort = (value) => {
     sort.includes(value) ? setSort(sort.filter((s) => s !== value)) : setSort((preState) => [...preState, value]);
   };
@@ -156,3 +158,4 @@ const Home = () => {
   );
 };
 export default Home;
+
