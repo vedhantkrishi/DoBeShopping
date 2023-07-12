@@ -2,9 +2,11 @@ const asyncHandler = require("../middleware/async");
 const createError = require("../utilis/createError");
 const Category = require("../models/Category");
 
+
 const getCategories = asyncHandler(async (req, res, next) => {
   res.status(200).send({ status: "success", data: res.advanceResults });
 });
+
 
 const getCategory = asyncHandler(async (req, res, next) => {
   const category = await Category.findById(req.params.categoryId);
@@ -57,6 +59,7 @@ const removeCategory = asyncHandler(async (req, res, next) => {
     .status(204)
     .send({ status: "success", message: "Category Deleted Successfully" });
 });
+
 module.exports = {
   getCategories,
   getCategory,
